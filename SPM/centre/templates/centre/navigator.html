@@ -1,19 +1,25 @@
 {% load static %}
-<header class="header">
-    <div class="container container--narrow">
-      <a href="/" class="header__logo">
+    <div class="container">
+      <nav class="menu">
+          <a href="/" class="logo">
         <img src="{% static 'images/logo.png'%}" alt="Logo" />
       </a>
-      <nav class="header__nav">
-          <ul class="header__menu">
-          <li class="header__menuItem"><a href="index.html">О центре</a></li>
-          <li class="header__menuItem"><a href="{% url 'centre' %}">Лицензионные участки</a></li>
-          <li class="header__menuItem"><a href="inbox.html">Руководство</a></li>
-          <li class="header__menuItem"><a href="account.html">Аккаунты</a></li>
-          <li class="header__menuItem"><a href="account.html">Библиотека</a></li>
-          <li class="header__menuItem"><a href="login.html" class="btn btn--sub">Логин/Выйти</a></li>
+          <ul class="menu-main">
+          <li class="left-item" ><a href="{% url 'index' %}">О центре</a></li>
+          <li class="left-item"><a href="{% url 'centre' %}">Лицензионные участки</a></li>
+          <li class="left-item"><a href="account.html">Аккаунт</a></li>
+          <li class="right-item" ><a href="account.html">Библиотека</a></li>
+          <li class="right-item" ><a href="login.html" class="btn btn--sub">Логин/Выйти</a></li>
         </ul>
       </nav>
     </div>
-  <img src="{% static 'images/fon.jpg'%}" alt="fon">
-  </header>
+<br>
+      <nav class="menu2">
+          <ul class="menu-main2">
+          <li class="center-item"><a href="index.html">Подать заявку</a></li>
+          <li class="center-item"><a href="#">Актуальные заявки</a></li>
+          <li class="center-item"><a href="inbox.html">Выполненные заявки</a></li>
+         </ul>
+      </nav>
+
+ <img src="{% static 'images/fon.jpg'%}" alt="fon">

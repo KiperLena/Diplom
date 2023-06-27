@@ -1,17 +1,17 @@
 {% extends 'centre/base.html' %}
 {% block content %}
-<main class="projects">
-    <section class="hero-section text-center">
-      <div class="container container--narrow">
-        <div class="hero-section__box">
+<main>
+    <section>
+      <div>
+        <div>
           <h2><span>Лицензионные участки</span></h2>
         </div>
       </div>
     </section>
     <!-- Search Result: DevList -->
-    <section class="projectsList">
-      <div class="container">
-        <div class="grid grid--three">
+    <section >
+      <div >
+        <div >
           {% for num in area %}
           <div class="column">
             <div class="card project">
@@ -21,6 +21,7 @@
                   <h3 class="project__title">{{ num.title }}</h3>
                   <p class="project--rating">
                     <span style="font-weight: bold;">{{ num.square}}m2</span>
+                  </p>
                   </div>
               </a>
             </div>

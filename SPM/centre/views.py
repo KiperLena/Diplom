@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import Area
 
 
+def index(request):
+    return render(request, 'centre/index.html')
 
 
 def centre(request):
