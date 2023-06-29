@@ -1,35 +1,16 @@
 {% extends 'centre/base.html' %}
 {% block content %}
-<main>
-    <section>
-      <div>
-        <div>
-          <h2><span>Лицензионные участки</span></h2>
-        </div>
-      </div>
-    </section>
-    <!-- Search Result: DevList -->
+          <h1 align="center"><span>Лицензионные участки</span></h1>
     <section >
-      <div >
-        <div >
+      <div class="two">
           {% for num in area %}
           <div class="column">
-            <div class="card project">
               <a href="{% url 'area' num.id %}" class="project">
-                <img class="project__thumbnail" src="{{ num.area_image.url }}" alt="project thumbnail" />
-                <div class="card__body">
-                  <h3 class="project__title">{{ num.title }}</h3>
-                  <p class="project--rating">
-                    <span style="font-weight: bold;">{{ num.square}}m2</span>
-                  </p>
-                  </div>
+                  <h2 class="project__title">{{ num.title }}</h2>
               </a>
-            </div>
+                  <p>{{ num.region}}</p>
           </div>
           {% endfor %}
         </div>
-      </div>
     </section>
-
-  </main>
 {% endblock %}

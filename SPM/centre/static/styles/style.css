@@ -126,3 +126,17 @@
     display: inline-block; 
     margin-left: 5px;
 }
+.column{
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px #954a27;
+  text-indent: 30px;
+  padding: 10px 10px 10px 10px;
+  margin: 20px;
+  width: 400px;
+  display: inline-block; 
+  margin-left: 20px;
+}
+.two{
+  margin: 10px;
+}
