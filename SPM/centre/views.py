@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Area
-from django.http import FileResponse, Http404
+
 
 def index(request):
     return render(request, 'centre/index.html')
@@ -21,7 +21,3 @@ def area(request, pk):
 
 def old_doc(request):
     return render(request, 'centre/biblioteka.html')
-    # try:
-    #     return FileResponse(open('foobar.pdf', 'rb'), content_type='application/pdf')
-    # except FileNotFoundError:
-    #     raise Http404()
