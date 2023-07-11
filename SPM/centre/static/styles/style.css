@@ -140,3 +140,6 @@
 .two{
   margin: 10px;
 }
+li{
+  text-decoration: none;
+}
