@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Area
+from .models import Area, Type
 
 
 def index(request):
