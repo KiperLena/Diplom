@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Area, Type
+from .models import Area
+from .forms import ReportForm
 
 
 def index(request):
@@ -21,3 +22,10 @@ def area(request, pk):
 
 def old_doc(request):
     return render(request, 'centre/biblioteka.html')
+
+
+def create_report(request):
+    form = ReportForm()
+    context = {'form': form}
+    return render(request, 'centre/form-report.html', context)
+

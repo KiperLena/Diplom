@@ -1,0 +1,15 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>форма отчета</h1>
+<form сlass="form" method="post">
+    {% for field in form %}
+            <div>
+                        <label>{{ field.label }}</label>
+                    {{ field }}
+                    </div>
+                    {% endfor %}
+    <input type="submit" value="Добавить отчет">
+</form>
+{% endblock %}
