@@ -44,7 +44,7 @@ class Group(models.Model):
 
 
 class Report(models.Model):
-    field = models.CharField(max_length=200, verbose_name="Месторождение")
+    field = models.CharField(max_length=60, verbose_name="Месторождение")
     title = models.ManyToManyField('Area', blank=True, verbose_name="Лицензионный участок")
     type = models.ManyToManyField('Type', blank=True, verbose_name="Вид работ")
     description = models.TextField(blank=True, null=True, verbose_name="Комментарий")

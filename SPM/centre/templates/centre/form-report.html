@@ -2,14 +2,21 @@
 {% load static %}
 {% block content %}
 
-<h1>форма отчета</h1>
-<form сlass="form" method="post">
-    {% for field in form %}
+<h1>форма отчета ОТКОРРЕКТИРОВАТЬ</h1>
+
+<form сlass="form" method="post" >
+    <div class="form-border">
+        {% csrf_token %}
+        {% for field in form %}
+<div class="form-report">
             <div>
                         <label>{{ field.label }}</label>
                     {{ field }}
-                    </div>
-                    {% endfor %}
-    <input type="submit" value="Добавить отчет">
+            </div>
+        {% endfor %}
+
+    </div>
+    <input type="submit" class="btn--sub" value="Добавить отчет">
+    </div>
 </form>
 {% endblock %}

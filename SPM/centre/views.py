@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Area
 from .forms import ReportForm
 
@@ -26,6 +26,13 @@ def old_doc(request):
 
 def create_report(request):
     form = ReportForm()
+
+    if request.method == 'POST':
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+
     context = {'form': form}
     return render(request, 'centre/form-report.html', context)
 
