@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import Account
 
 
 class Area(models.Model):
@@ -10,7 +11,6 @@ class Area(models.Model):
     start = models.CharField(max_length=20, blank=True, null=True, verbose_name="Выдали")
     stop = models.CharField(max_length=20, blank=True, null=True, verbose_name="Окончание")
     region = models.CharField(max_length=20, blank=True, null=True, verbose_name="Регион")
-
 
     def __str__(self):
         return self.title
@@ -44,6 +44,7 @@ class Group(models.Model):
 
 
 class Report(models.Model):
+    owner = models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True)
     field = models.CharField(max_length=60, verbose_name="Месторождение")
     title = models.ManyToManyField('Area', blank=True, verbose_name="Лицензионный участок")
     type = models.ManyToManyField('Type', blank=True, verbose_name="Вид работ")

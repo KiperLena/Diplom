@@ -198,6 +198,11 @@ li a{
 .form-border{
   border: 3px #975913 solid;
 }
+.form-label{
+  text-align: center;
+  color: #975913;
+  font-size: 18pt;
+}
 
 
 
