@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE , null=True, blank=True)
     name = models.CharField(max_length=100, blank=True, null=True, verbose_name="Имя Фамилия")
@@ -14,6 +15,10 @@ class Account(models.Model):
 
     def __str__(self):
         return self.username
+
+
+
+
 
 
 

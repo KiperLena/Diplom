@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Area
 from .forms import ReportForm
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -23,7 +24,7 @@ def area(request, pk):
 def old_doc(request):
     return render(request, 'centre/biblioteka.html')
 
-
+@login_required(login_url="login")
 def create_report(request):
     form = ReportForm()
 
