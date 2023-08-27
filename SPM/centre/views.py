@@ -1,11 +1,21 @@
-from django.shortcuts import render,redirect
-from .models import Area
+from django.shortcuts import render, redirect
+from .models import Area, Department1, Group, Department2,Directorate
 from .forms import ReportForm
 from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    return render(request, 'centre/index.html')
+    department1 = Department1.objects.all()
+    department2 = Department2.objects.all()
+    directorate = Directorate.objects.all()
+    group = Group.objects.all()
+    context = {
+        'department1': department1,
+        'department2': department2,
+        'group':  group,
+        'directorate': directorate,
+    }
+    return render(request, 'centre/index.html', context)
 
 
 def centre(request):

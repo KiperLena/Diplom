@@ -59,3 +59,55 @@ class Report(models.Model):
     class Meta: #служебный класс
         verbose_name = "Отчет" # перевод на русский на странице админа в единственом числе
         verbose_name_plural = "Отчеты"
+
+
+class Department1(models.Model):
+    full_name = models.CharField(max_length=150, verbose_name="ФИО")
+    post = models.CharField(max_length=100, verbose_name="Должность")
+    telephone = models.CharField(max_length=20, verbose_name="Номер телефона рабочий")
+    mobile_phone = models.CharField(max_length=20, blank=True, null=True, verbose_name="Мобильный телефон")
+    email = models.EmailField(max_length=60, blank=True, null=True, verbose_name="Электронная почта")
+    office = models.CharField(max_length=10, blank=True, null=True, verbose_name="Номер кабинета")
+    name = models.ManyToManyField('Group', blank=True, verbose_name="Отдел")
+
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta: #служебный класс
+        verbose_name = "список сотрудников ОПМ" # перевод на русский на странице админа в единственом числе
+        verbose_name_plural = "Списки сотрудников ОПМ"
+
+
+class Department2(models.Model):
+    full_name = models.CharField(max_length=150, verbose_name="ФИО")
+    post = models.CharField(max_length=100, verbose_name="Должность")
+    telephone = models.CharField(max_length=20, verbose_name="Номер телефона рабочий")
+    mobile_phone = models.CharField(max_length=20, blank=True, null=True, verbose_name="Мобильный телефон")
+    email = models.EmailField(max_length=60, blank=True, null=True, verbose_name="Электронная почта")
+    office = models.CharField(max_length=10, blank=True, null=True, verbose_name="Номер кабинета")
+    name = models.ManyToManyField('Group', blank=True, verbose_name="Отдел")
+
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta: #служебный класс
+        verbose_name = "список сотрудников ОСМ" # перевод на русский на странице админа в единственом числе
+        verbose_name_plural = "Списки сотрудников ОСМ"
+
+class Directorate(models.Model):
+    full_name = models.CharField(max_length=150, verbose_name="ФИО")
+    post = models.CharField(max_length=100, verbose_name="Должность")
+    telephone = models.CharField(max_length=20, verbose_name="Номер телефона рабочий")
+    mobile_phone = models.CharField(max_length=20, blank=True, null=True, verbose_name="Мобильный телефон")
+    email = models.EmailField(max_length=60, blank=True, null=True, verbose_name="Электронная почта")
+    office = models.CharField(max_length=10, blank=True, null=True, verbose_name="Номер кабинета")
+    image = models.ImageField(upload_to="accounts/", default="accounts/user-default.png")
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta: #служебный класс
+        verbose_name = "список руководителей" # перевод на русский на странице админа в единственом числе
+        verbose_name_plural = "Списки руководителей"
