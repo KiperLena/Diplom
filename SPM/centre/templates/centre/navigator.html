@@ -8,7 +8,7 @@
           <li class="left-item" ><a href="{% url 'index' %}">О центре</a></li>
           <li class="left-item"><a href="{% url 'centre' %}">Лицензионные участки</a></li>
              {% if request.user.is_authenticated %}
-              <li class="left-item"><a href="{% url 'accounts' %}">Аккаунт</a></li>
+              <li class="left-item"><a href="#">Аккаунт</a></li>
              {% endif %}
               <li class="right-item" ><a href="{% url 'old_doc' %}">Библиотека</a></li>
           {% if request.user.is_authenticated %}

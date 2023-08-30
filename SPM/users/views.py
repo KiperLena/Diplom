@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomUserCreationForm
+
 
 
 def accounts(request, pk):
@@ -48,16 +50,20 @@ def logout_user(request):
 
 def register_user(request):
     page = 'register'
-    form = UserCreationForm()
+    form = CustomUserCreationForm()
 
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
 
             messages.success(request, "Пользователь успешно зарегистрирован!")
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.error(request, "При регистрации произошла ошибка!")
 
     context = {
         'page': page,

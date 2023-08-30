@@ -119,13 +119,6 @@
     margin: 0 30px;
   }
   }
- .one{
-    text-align: center;
-}
-.face{
-    display: inline-block; 
-    margin-left: 5px;
-}
 .column{
   text-align: center;
   border-radius: 10px;
@@ -450,7 +443,7 @@ input[type=text]:placeholder {
 } 
 
 #icon {
-  width:60%;
+  width:40%;
 }
 
 * {
@@ -476,13 +469,13 @@ input[type=text]:placeholder {
 }
 
 .team .team_member{
-  background: #fff;
+  background: #dce5f4;
   margin: 5px;
   margin-bottom: 50px;
   width: 300px;
   padding: 20px;
   line-height: 20px;
-  color: #8e8b8b;  
+  color: #514848;  
   position: relative;
 }
 
@@ -493,7 +486,7 @@ input[type=text]:placeholder {
 }
 
 .team .team_member p.role{
-  color: #ccc;
+  color: #832a2a;
   margin: 12px 0;
   font-size: 12px;
   text-transform: uppercase;
@@ -507,7 +500,7 @@ input[type=text]:placeholder {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: #fff;
+  background: #755a10;
 }
 
 .team .team_member .team_img img{
