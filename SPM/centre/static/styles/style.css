@@ -300,7 +300,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -508,3 +508,75 @@ input[type=text]:placeholder {
   height: 100px;
   padding: 5px;
 }
+
+
+/*=======================
+  Pagination
+========================*/
+/* .pagination {
+  margin-top: 8rem;
+  margin-bottom: 10rem;
+}
+
+.pagination > ul {
+  flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pagination .btn {
+  color: var(--color-sub);
+}
+
+.pagination .btn.btn--sub {
+  color: var(--color-light);
+}
+
+.btn--sub {
+  background-color: var(--color-sub-light);
+} */
+/* .page-link {
+  background-color: #4CAF50;
+  color: white;
+} */
+
+
+
+
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+  }
+   
+  .pagination-list {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  }
+   
+  .pagination-list li {
+  display: inline-block;
+  margin: 0 5px;
+  }
+   
+  .pagination-list a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  }
+   
+  .pagination-list a:hover {
+  background-color: #f5f5f5;
+  }
+  .pagination a.active {
+    background-color: #67a4d3;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

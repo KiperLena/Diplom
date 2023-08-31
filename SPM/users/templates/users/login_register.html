@@ -20,12 +20,23 @@
         <!-- Register Form -->
         <form action="{% url 'register' %}" method="post">
             {% csrf_token %}
-            {% for field in form %}
-            <div class="fadeIn third">
-                <label>{{ field.label }}:</label>
-                {{ field }}
-            </div>
-            {% endfor %}
+            <label>Введите Имя</label>
+            <br>
+            {{ form.first_name }}
+            <label>Введите Фамилию</label>
+            <br>
+            {{ form.last_name }}
+            <br>
+            <label>Имя на сайте</label>
+            <br>
+            {{ form.username }}
+            <label>Введите Пароль</label>
+            <br>
+            {{ form.password1 }}
+
+            <label>Подтвердите пароль</label>
+            <br>
+            {{ form.password2 }}
             <input type="submit" class="fadeIn fourth" value="Зарегистрировать">
         </form>
 

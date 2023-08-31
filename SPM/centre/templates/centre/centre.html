@@ -1,16 +1,31 @@
 {% extends 'centre/base.html' %}
 {% block content %}
-          <h1 align="center"><span>Лицензионные участки</span></h1>
-    <section >
-      <div class="two">
-          {% for num in area %}
-          <div class="column">
-              <a href="{% url 'area' num.id %}" class="project">
-                  <h2 class="project__title">{{ num.title }}</h2>
-              </a>
-                  <p>{{ num.region}}</p>
-          </div>
-          {% endfor %}
+<h1 align="center"><span>Лицензионные участки</span></h1>
+<section>
+    <div class="two">
+        {% for num in area %}
+        <div class="column">
+            <a href="{% url 'area' num.id %}" class="project">
+                <h2 class="project__title">{{ num.title }}</h2>
+            </a>
+            <p>{{ num.region}}</p>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
+
+<div class="pagination">
+    <ul class="pagination-list">
+        {% for page in paginator.page_range %}
+                {% if page == area.number %}
+        <li><a href="?page={{ page }}" class="active">{{ page }}</a></li>
+        {% else %}
+        <li><a href="?page={{ page }}" >{{ page }}</a></li>
+         {% endif %}
+        {% endfor %}
+
+    </ul>
+</div>
+
+
 {% endblock %}
