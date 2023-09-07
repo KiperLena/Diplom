@@ -1,0 +1,130 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Центр ЦГСД Какой-то текст о центре</h1>
+
+<div class="wrapper">
+  <h1>Руководящий состав:</h1>
+  <div class="team">
+          {% for dir in directorate %}
+    <div class="team_member">
+      <div class="team_img">
+        <img src="{{ dir.image.url }}" alt="Team_image">
+      </div>
+      <h3>{{ dir.full_name }}</h3>
+      <p class="role">{{ dir.post }}</p>
+      <p>
+          Электронная почта: {{ dir.email }}
+          <br>
+          Номер телефона: {{ dir.telephone }}
+      </p>
+    </div>
+
+      {% endfor %}
+  </div>
+</div>
+
+<hr>
+<h2 align="center">Отделы</h2>
+<div class="one">
+
+    <h3 align="center">Отдел Сейсмического моделирования</h3>
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <th align="center" width="15%">ФИО</th>
+            <th align="center" width="15%">Должность</th>
+            <th align="center" width="15%">Номер телефона рабочий</th>
+            <th align="center" width="15%">Мобильный телефон</th>
+            <th align="center" width="15%">Электронная почта</th>
+            <th align="center" width="15%">Номер кабинета</th>
+        </tr>
+    </table>
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <td width="15%">Воронцова Лариса Николаевна</td>
+            <td width="15%">Начальник отдела</td>
+            <td width="15%">*****</td>
+            <td width="15%">****</td>
+            <td width="15%">+++++@mail.ru</td>
+            <td width="15%">100</td>
+        </tr>
+    </table>
+
+    <h3 align="center">Сотрудники отдела</h3>
+
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <th align="center" width="15%">ФИО</th>
+            <th align="center" width="15%">Должность</th>
+            <th align="center" width="15%">Номер телефона рабочий</th>
+            <th align="center" width="15%">Мобильный телефон</th>
+            <th align="center" width="15%">Электронная почта</th>
+            <th align="center" width="15%">Номер кабинета</th>
+        </tr>
+    </table>
+    {% for gr in department1 %}
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <td width="15%">{{ gr.full_name }}</td>
+            <td width="15%">{{ gr.post }}</td>
+            <td width="15%">{{ gr.telephone }}</td>
+            <td width="15%">{{ gr.mobile_phone }}</td>
+            <td width="15%">{{ gr.email }}</td>
+            <td width="15%">{{ gr.office }}</td>
+        </tr>
+    </table>
+
+    {% endfor %}
+
+        <h3 align="center">Отдел Петрофизического моделирования</h3>
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <th align="center" width="15%">ФИО</th>
+            <th align="center" width="15%">Должность</th>
+            <th align="center" width="15%">Номер телефона рабочий</th>
+            <th align="center" width="15%">Мобильный телефон</th>
+            <th align="center" width="15%">Электронная почта</th>
+            <th align="center" width="15%">Номер кабинета</th>
+        </tr>
+    </table>
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <td width="15%">Казанцев Сергей Валерьевич</td>
+            <td width="15%">Начальник отдела</td>
+            <td width="15%">*****</td>
+            <td width="15%">****</td>
+            <td width="15%">+++++@mail.ru</td>
+            <td width="15%">100</td>
+        </tr>
+    </table>
+
+    <h3 align="center">Сотрудники отдела</h3>
+
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <th align="center" width="15%">ФИО</th>
+            <th align="center" width="15%">Должность</th>
+            <th align="center" width="15%">Номер телефона рабочий</th>
+            <th align="center" width="15%">Мобильный телефон</th>
+            <th align="center" width="15%">Электронная почта</th>
+            <th align="center" width="15%">Номер кабинета</th>
+        </tr>
+    </table>
+    {% for gr in department2 %}
+    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+        <tr>
+            <td width="15%">{{ gr.full_name }}</td>
+            <td width="15%">{{ gr.post }}</td>
+            <td width="15%">{{ gr.telephone }}</td>
+            <td width="15%">{{ gr.mobile_phone }}</td>
+            <td width="15%">{{ gr.email }}</td>
+            <td width="15%">{{ gr.office }}</td>
+        </tr>
+    </table>
+
+    {% endfor %}
+
+
+    <hr>
+    {% endblock %}

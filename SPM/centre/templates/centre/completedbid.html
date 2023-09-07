@@ -1,0 +1,34 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Выполненные задачи: </h1>
+    {% for bid in bids %}
+<div class="zadachi">
+<ul>
+    <li>
+        <a href="{% url 'viewbid' bid.id %}">
+              <br>
+            {% if bid.important %}
+            <b>{{ bid.title }}</b>
+            {% else %}
+            {{ bid.title }}
+            {% endif %}
+            <br>
+            {% if bid.purpose %}
+            - {{ bid.purpose }}
+            {% endif %}
+            <br>
+            <b>Было выполнено:</b> {{ bid.date_completed|date:'M j Y H:i'}}
+            <br>
+              <br>
+              <br>
+          </a>
+    </li>
+
+</ul>
+</div>
+ {% endfor %}
+<hr>
+
+{% endblock %}

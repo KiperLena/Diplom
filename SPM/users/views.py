@@ -8,19 +8,26 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 
 
+def profiles(request):
+    prof = Account.objects.all()
+    context = {
+        'profiles': prof,
+    }
+    return render(request, 'users/index.html', context)
 
-def accounts(request, pk):
+
+def user_profile(request, pk):
     prof = Account.objects.get(id=pk)
 
     context = {
-        'account': prof,
+        'profile': prof,
     }
-    return render(request, 'users/account.html', context)
+    return render(request, 'users/profile.html', context)
 
 
 def login_user(request): #авторизация
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('info')
 
     if request.method == 'POST':
         username = request.POST['username'].lower()
@@ -35,7 +42,7 @@ def login_user(request): #авторизация
 
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('centre')
         else:
             messages.error(request, "Имя или пароль некорректны!")
 
@@ -61,7 +68,7 @@ def register_user(request):
 
             messages.success(request, "Пользователь успешно зарегистрирован!")
             login(request, user)
-            return redirect('index')
+            return redirect('info')
         else:
             messages.error(request, "При регистрации произошла ошибка!")
 

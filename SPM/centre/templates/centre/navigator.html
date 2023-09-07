@@ -1,20 +1,22 @@
 {% load static %}
     <div class="container">
       <nav class="menu">
-          <a href="/" class="logo">
+          <a href="{% url 'centre' %}" class="logo">
         <img src="{% static 'images/logo.png'%}" alt="Logo" />
       </a>
           <ul class="menu-main">
-          <li class="left-item" ><a href="{% url 'index' %}">О центре</a></li>
-          <li class="left-item"><a href="{% url 'centre' %}">Лицензионные участки</a></li>
+          <li class="left-item" ><a href="{% url 'centre' %}">О центре</a></li>
+          <li class="left-item"><a href="{% url 'licea_area' %}">Лицензионные участки</a></li>
              {% if request.user.is_authenticated %}
-              <li class="left-item"><a href="#">Аккаунт</a></li>
+              <li class="left-item"><a href="{% url 'profiles' %}">Аккаунты</a></li>
              {% endif %}
               <li class="right-item" ><a href="{% url 'old_doc' %}">Библиотека</a></li>
           {% if request.user.is_authenticated %}
+
               <li class="right-item" ><a href="{% url 'logout' %}" >Выйти</a></li>
+              <li class="right-item" ><a href="{% url 'user_profile' user.id %}" ><img style="width:20px" src="{% static 'images/profile.png'%}" alt="profile" /> {{ user.username }}</a></li>
               {% else %}
-              <li class="right-item" ><a href="{% url 'login' % }" >Логин/Регистрация</a></li>
+              <li class="right-item" ><a href="{% url 'login' %}" >Логин/Регистрация</a></li>
         {% endif %}
           </ul>
       </nav>
@@ -23,9 +25,9 @@
       <nav class="menu2">
           <ul class="menu-main2">
               {% if request.user.is_authenticated %}
-          <li class="center-item"><a href="#">Подать заявку</a></li>
-          <li class="center-item"><a href="#">Актуальные заявки</a></li>
-          <li class="center-item"><a href="#">Выполненные заявки</a></li>
+          <li class="center-item"><a href="{% url 'create_bid' %}">Подать заявку</a></li>
+          <li class="center-item"><a href="{% url 'current_bid' %}">Актуальные заявки</a></li>
+          <li class="center-item"><a href="{% url 'completedbid' %}">Выполненные заявки</a></li>
           <li class="center-item"><a href="{% url 'create-report' %}">Отчет</a></li>
          {% endif %}
          </ul>

@@ -1,8 +1,17 @@
 {% extends 'centre/base.html' %}
 {% block content %}
-
-<p>{{ area.title }}</p>
-
+<div id="licea">
+    <div class="open">
+    <h2>Лицензионный участок: <span>{{ licenses.title }}</span> </h2>
+    <h3>Серия: <span>{{ licenses.seria }}</span> </h3>
+    <h3>Номер: <span>{{ licenses.num }}</span></h3>
+    <h3>Тип: <span>{{ licenses.type }}</span></h3>
+    <h3>Регион: <span> {{ licenses.region }}</span></h3>
+    <h3> Отвод: <span>{{ licenses.otvod }}</span></h3>
+    <h3>Выдан: <span>{{ licenses.start }}</span></h3>
+    <h3>Окончание: <span>{{ licenses.stop }}</span></h3>
+    </div>
+</div>
 
 
 {% endblock %}

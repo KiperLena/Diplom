@@ -1,0 +1,39 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Актуальные задач: </h1>
+
+ {% for bid in bids %}
+<div class="zadachi">
+<ul>
+    <li>
+        <a href="{% url 'viewbid' bid.id %}">
+            {% if bid.important %}
+            <b>{{ bid.title }}</b>
+            {% else %}
+            {{ bid.title }}
+            {% endif %}
+            <br>
+            {% for a in bid.area.all %}
+            {{ a }}
+            {% endfor %}
+            <br>
+            {% if bid.purpose %}
+              {{ bid.purpose }}
+            {% endif %}
+            <p>Задачу поставил: <a href="">{{ bid.user }}</a></p>
+            {{ bid.created}}
+            <br>
+
+        </a>
+
+    </li>
+
+</ul>
+</div>
+  {% endfor %}
+<hr>
+
+
+{% endblock %}

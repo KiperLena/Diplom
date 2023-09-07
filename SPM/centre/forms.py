@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Report
+from .models import Report, Bid
 
 
 class ReportForm(ModelForm):
@@ -18,7 +18,10 @@ class ReportForm(ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'form-report'})
 
-
+class BidForm(ModelForm):
+    class Meta:
+        model = Bid
+        fields = ['title', 'area', 'field', 'type', 'purpose', 'number', 'name', 'important']
 
 
 

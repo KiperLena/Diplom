@@ -1,0 +1,15 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Создание задач: </h1>
+<h2>{{ error }}</h2>
+<form method="post" class="bg">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="center">
+        <button> Создать </button>
+    </div>
+</form>
+
+{% endblock %}

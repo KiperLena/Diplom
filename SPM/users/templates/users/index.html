@@ -1,0 +1,34 @@
+{% extends 'centre/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Main Section -->
+
+<div>
+    <h2>Зарегистрированные пользователи</h2>
+</div>
+
+<!-- Search Result: DevList -->
+<section>
+        <div>
+            {% for profile in profiles %}
+            <div class="prof">
+                    <a href="{% url 'user_profile' profile.id %}" class="card__body">
+                        <div class="dev__profile">
+                            <img class="avatar avatar--md" src="{{ profile.account_image.url}}"
+                                 alt="image"/>
+                            <div class="dev__meta">
+                                <h3>{{ profile.name}}</h3>
+                                <h5>{{ profile.email}}</h5>
+                                <h5>{{ profile.profession}}</h5>
+
+                            </div>
+                        </div>
+                    </a>
+            </div>
+            {% endfor %}
+        </div>
+</section>
+
+{% endblock %}
