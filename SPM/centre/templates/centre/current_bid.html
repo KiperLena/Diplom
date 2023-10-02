@@ -2,38 +2,83 @@
 {% load static %}
 {% block content %}
 
-<h1>Актуальные задач: </h1>
+<h1 align="center">Актуальные заявки: </h1>
 
- {% for bid in bids %}
-<div class="zadachi">
-<ul>
-    <li>
-        <a href="{% url 'viewbid' bid.id %}">
-            {% if bid.important %}
-            <b>{{ bid.title }}</b>
-            {% else %}
-            {{ bid.title }}
-            {% endif %}
-            <br>
-            {% for a in bid.area.all %}
-            {{ a }}
-            {% endfor %}
-            <br>
-            {% if bid.purpose %}
-              {{ bid.purpose }}
-            {% endif %}
-            <p>Задачу поставил: <a href="">{{ bid.user }}</a></p>
-            {{ bid.created}}
-            <br>
+<div class="layout">
+    <div class="opm">
+        <h2>Отдел Петрофизического Моделирования</h2>
+        <h3 align="center">Количество актуальных заявок: {{ count_2 }}</h3>
+        {% for bid in bids_2 %}
+        <div class="zadachi">
+            <ul>
+                <li class="kartochka">
+                    <a href="{% url 'viewbid' bid.id %}">
+                        {% if bid.important %}
+                        <p><i>Название заявки</i>:<b>{{ bid.title }}</b></p>
+                        {% else %}
+                        <p><i>Название заявки: </i>{{ bid.title }}</p>
+                        {% endif %}
+                        {% for a in bid.area.all %}
+                        <p><i>Название участка работ:</i> {{ a }}</p>
+                        {% endfor %}
+                        {% if bid.purpose %}
+                        <p><i>Цель заявки:</i>{{ bid.purpose }}</p>
+                        {% endif %}
+                        {% for b in bid.name.all %}
+                        <p><i>Отдел для выполнения:</i> <br> {{ b }}</p>
+                        {% endfor %}
+                        {% if bid.user %}
+                        Задачу выполняет: <a href="">{{ bid.user }}</a>
+                        {% else %}
+                        Задачу выполняет : Не выбрано!<br>
+                        {% endif%}
+                        {{ bid.created}}
+                        <br>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-        </a>
+        {% endfor %}
+    </div>
+    <div class="osm">
+        <h2>Отдел Сейсмогеологического Моделирования</h2>
+        <h3 align="center">Количество актуальных заявок: {{ count }}</h3>
+        {% for bid in bids %}
 
-    </li>
+        <div class="zadachi">
+            <ul>
+                <li class="kartochka">
+                    <a href="{% url 'viewbid' bid.id %}">
+                        {% if bid.important %}
+                        <p><i>Название заявки</i>:<b>{{ bid.title }}</b></p>
+                        {% else %}
+                        <p><i>Название заявки: </i>{{ bid.title }}</p>
+                        {% endif %}
+                        {% for a in bid.area.all %}
+                        <p><i>Название участка работ:</i> {{ a }}</p>
+                        {% endfor %}
+                        {% if bid.purpose %}
+                        <p><i>Цель заявки:</i>{{ bid.purpose }}</p>
+                        {% endif %}
+                        {% for b in bid.name.all %}
+                        <p><i>Отдел для выполнения:</i> <br> {{ b }}</p>
+                        {% endfor %}
+                        {% if bid.user %}
+                        Задачу выполняет: <a href="">{{ bid.user }}</a>
+                        {% else %}
+                        Задачу выполняет : Не выбрано!<br>
+                        {% endif%}
+                        {{ bid.created}}
+                        <br>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-</ul>
+        {% endfor %}
+
+    </div>
 </div>
-  {% endfor %}
 <hr>
-
-
 {% endblock %}

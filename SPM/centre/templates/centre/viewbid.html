@@ -1,31 +1,55 @@
 {% extends 'centre/base.html' %}
 {% load static %}
 {% block content %}
+<div class="bid">
+    <h3>Перед вами стоит следующая задача:</h3>
+    {% for a in bid.area.all %}
+    <p>На лицензионном участке: {{ a }}
+        {% endfor %}
+        и на месторождении: {{ bid.field }}.
+        <br> Необходимо выполнить вид работ:
+        {% for b in bid.type.all %}
+        {{ b }}
+        {% endfor %}
+        {% if bid.purpose %}
+        ,с целью:- {{ bid.purpose }}.
+        {% endif %}
+        {% if bid.number %}
+        В работе необходимо использовать следующие скважины:
+        {{ bid.number }}
+        {% endif %}
+        <br>
+        {% for c in bid.name.all %}
+        Заявка выдана для: {{ c }}.
+        {% endfor %}
+        <br>
+        {% if bid.user %}
+        Заявка от {{ bid.created }} выполняет <a href="{% url 'user_profile' bidd.id %}">{{ bid.user }}</a>
+        {% else %}
+        Заявка от {{ bid.created }} выполняет : Выберите кто
+        {% endif %}
+        <br>
+    <hr>
+    Заявитель: {{bid.user_bid}}, телефон для связи: {{bid.phone}}
+    </p>
+</div>
 
-{{ bid.title }}
-
-{{ error }}
-<br>
-{{ bid.field }}
-<br>
-{{ bid.date_completed}}
-{{ bid.new.area }}
 
 <div class="but">
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn remove">Сохранить</button>
-</form>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn remove">Сохранить</button>
+    </form>
 
-<form action="{% url 'completebid' bid.id %}" method="post">
-    {% csrf_token %}
-    <button class="btn good">Выполнено</button>
-</form>
+    <form action="{% url 'completebid' bid.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn good">Выполнено</button>
+    </form>
 
-<form action="{% url 'deletebid' bid.id %}" method="post">
-    {% csrf_token %}
-    <button class="btn remove">Удалить</button>
-</form>
+    <form action="{% url 'deletebid' bid.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn remove">Удалить</button>
+    </form>
 </div>
 {% endblock %}

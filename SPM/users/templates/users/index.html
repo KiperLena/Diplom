@@ -4,31 +4,57 @@
 
 
 <!-- Main Section -->
+<main class="lic_area">
+<section class="hero-section text-center">
+    <div class="hero-section__box">
+            <h2 align="center">Поиск <span>Пользователей</span></h2>
 
-<div>
-    <h2>Зарегистрированные пользователи</h2>
-</div>
+        <div class="hero-section__search">
+            <form id="search" class="form" action="{% url 'profiles' %}" method="get">
+                <div class="form__field">
+                    <label>Поиск пользователя </label>
+                    <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                           value="{{ search_query }}"
+                           placeholder="Введите имя пользователя"/>
+                </div>
 
-<!-- Search Result: DevList -->
-<section>
-        <div>
-            {% for profile in profiles %}
-            <div class="prof">
-                    <a href="{% url 'user_profile' profile.id %}" class="card__body">
-                        <div class="dev__profile">
-                            <img class="avatar avatar--md" src="{{ profile.account_image.url}}"
-                                 alt="image"/>
-                            <div class="dev__meta">
-                                <h3>{{ profile.name}}</h3>
-                                <h5>{{ profile.email}}</h5>
-                                <h5>{{ profile.profession}}</h5>
-
-                            </div>
-                        </div>
-                    </a>
-            </div>
-            {% endfor %}
+                <input class="btn btn--sub btn--lg" type="submit" value="Найти"/>
+            </form>
         </div>
+    </div>
 </section>
+<!-- Search Result: DevList -->
 
+<section>
+    <div>
+        {% for profile in profiles %}
+        <div class="prof">
+            <a href="{% url 'user_profile' profile.id %}" class="card__body">
+                <div class="dev__profile">
+                    <img class="avatar avatar--md" src="{{ profile.account_image.url}}"
+                         alt="image"/>
+                    <div class="dev__meta">
+                        <h3>{{ profile.name}}</h3>
+                        {% if profile.email %}
+                        <h5>{{ profile.email}}</h5>
+                        {% else %}
+                        <h5>недостаточно информации</h5>
+                        {% endif %}
+                        {% if profile.profession %}
+                        <h5>{{ profile.profession}}</h5>
+                        {% else %}
+                        <h5>недостаточно информации</h5>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</section>
+{% include 'centre/pagination.html' with queryset=profiles custom_range=custom_range %}
+</main>
 {% endblock %}

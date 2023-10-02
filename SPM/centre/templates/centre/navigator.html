@@ -1,4 +1,5 @@
 {% load static %}
+<header>
     <div class="container">
       <nav class="menu">
           <a href="{% url 'centre' %}" class="logo">
@@ -14,7 +15,7 @@
           {% if request.user.is_authenticated %}
 
               <li class="right-item" ><a href="{% url 'logout' %}" >Выйти</a></li>
-              <li class="right-item" ><a href="{% url 'user_profile' user.id %}" ><img style="width:20px" src="{% static 'images/profile.png'%}" alt="profile" /> {{ user.username }}</a></li>
+              <li class="right-item" ><a href="{% url 'user_account' %}" >{{ user.username }}</a></li>
               {% else %}
               <li class="right-item" ><a href="{% url 'login' %}" >Логин/Регистрация</a></li>
         {% endif %}
@@ -34,3 +35,4 @@
       </nav>
 
  <img src="{% static 'images/fon.jpg'%}" alt="fon">
+</header>

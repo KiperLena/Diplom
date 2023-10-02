@@ -46,7 +46,7 @@ class Group(models.Model):
 
 class Report(models.Model):
     owner = models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True)
-    field = models.CharField(max_length=60, verbose_name="Месторождение")
+    field = models.CharField(max_length=200, verbose_name="Месторождение")
     title = models.ManyToManyField('Area', blank=True, verbose_name="Лицензионный участок")
     type = models.ManyToManyField('Type', blank=True, verbose_name="Вид работ")
     description = models.TextField(blank=True, null=True, verbose_name="Комментарий")
@@ -55,7 +55,7 @@ class Report(models.Model):
 
 
     def __str__(self):
-        return self.created
+        return self.field
 
     class Meta: #служебный класс
         verbose_name = "отчет" # перевод на русский на странице админа в единственом числе
@@ -76,7 +76,7 @@ class Department1(models.Model):
         return self.full_name
 
     class Meta: #служебный класс
-        verbose_name = "список сотрудников ОПМ" # перевод на русский на странице админа в единственом числе
+        verbose_name = "сотрудника ОПМ" # перевод на русский на странице админа в единственом числе
         verbose_name_plural = "Списки сотрудников ОПМ"
 
 
@@ -94,7 +94,7 @@ class Department2(models.Model):
         return self.full_name
 
     class Meta: #служебный класс
-        verbose_name = "список сотрудников ОСМ" # перевод на русский на странице админа в единственом числе
+        verbose_name = "сотрудника ОСМ" # перевод на русский на странице админа в единственом числе
         verbose_name_plural = "Списки сотрудников ОСМ"
 
 class Directorate(models.Model):
@@ -110,28 +110,30 @@ class Directorate(models.Model):
         return self.full_name
 
     class Meta: #служебный класс
-        verbose_name = "список руководителей" # перевод на русский на странице админа в единственом числе
+        verbose_name = "руководителя" # перевод на русский на странице админа в единственом числе
         verbose_name_plural = "Списки руководителей"
 
 
-class Bid(models.Model):
-    title = models.CharField(max_length=100, blank=True, null=True, verbose_name="Название задачи")
+class Bid(models.Model): #заявка
+    title = models.CharField(max_length=100, blank=True, null=True, verbose_name="Название заявки")
     area = models.ManyToManyField('Area', blank=True, verbose_name="Лицензионный участок")
-    field = models.CharField(max_length=100, blank=True, null=True, verbose_name="Месторождение")
+    field = models.CharField(max_length=200, blank=True, null=True, verbose_name="Месторождение")
     type = models.ManyToManyField('Type', blank=True, verbose_name="Вид работ")
-    purpose = models.CharField(max_length=200, blank=True, null=True, verbose_name="Цель задачи")
+    purpose = models.CharField(max_length=200, blank=True, null=True, verbose_name="Цель заявки")
     number = models.CharField(max_length=200, blank=True, null=True, verbose_name="Номер скважины")
     name = models.ManyToManyField('Group', blank=True, verbose_name="Отдел для выполнения")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     date_completed = models.DateTimeField(blank=True, null=True, verbose_name="Дата выполнения")
     important = models.BooleanField(default=False, verbose_name="Срочность задачи")
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Пользователь")
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Выполняет заявку")
+    user_bid = models.CharField(max_length=50, blank=True, null=True, verbose_name="Имя Фамилия заявителя")
+    phone = models.CharField(max_length=50, blank=True, null=True, verbose_name="Телефон заявителя")
 
     def __str__(self):
         return self.title
 
     class Meta: #служебный класс
-        verbose_name = "задачу" # перевод на русский на странице админа в единственом числе
-        verbose_name_plural = "Задачи"
+        verbose_name = "заявку" # перевод на русский на странице админа в единственом числе
+        verbose_name_plural = "Заявки"
 
 

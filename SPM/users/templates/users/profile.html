@@ -2,39 +2,45 @@
 {% load static %}
 {% block content %}
 <!-- Main Section -->
-<main>
-    <div class="prof">
-        <div class="layout">
-            <div>
-                <div class="card text-center">
 
-                    <div class="card__body dev">
-                        <img class="avatar avatar--xl" src="{{ profile.account_image.url}}"/>
-                        <h2 class="dev__name">{{ profile.name }}</h2>
-                        <p class="dev__title"> {{ profile.profession }}</p>
-                        <p class="dev__location">{{ profile.email }}</p>
-                        <p class="dev__location">{{ profile.phone }}</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="devInfo">
-                        <h3 class="devInfo__title">About Me</h3>
-                        <p class="devInfo__about">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex illum ipsum iusto consequatur.
-                            Totam,
-                            dolorum fugiat, debitis facere illo nostrum nesciunt maxime, deserunt enim voluptatibus modi
-                            natus velit
-                            voluptatum. Dicta eritatis exercitationem ut quos a placeat obcaecati? Architecto illum!
-                            <br/>
-                            Amet consectetur adipisicing elit. Veritatis exercitationem ut quos a placeat obcaecati?
-                            Architecto
-                            illum, atque delectus nemo dolorem inventore ab facilis? Dolor placeat vel delectus ipsam
-                            ullam.
-                        </p>
-                    </div>
-                </div>
-            </div>
+<div class="layout">
+    <div class="prof_left">
+        <div class="prof_kartochka">
+            <img class="avatar avatar--xl" src="{{ profile.account_image.url}}"/>
+            <h2 class="dev__name">{{ profile.name }}</h2>
+            {% if profile.profession %}
+            <p class="dev__title">Должность: {{ profile.profession }}</p>
+            {% else %}
+            <p class="dev__title">Должность: Недостаточно данных</p>
+            {% endif %}
+            {% if profile.department %}
+            <p class="dev__title">Отдел: {{ profile.department }}</p>
+            {% else %}
+            <p class="dev__title">Отдел: Недостаточно данных</p>
+            {% endif %}
+            {% if profile.email %}
+            <p class="dev__location">Электронная почта: {{ profile.email }}</p>
+            {% else %}
+            <p class="dev__location">Электронная почта: Недостаточно данных</p>
+            {% endif %}
+            {% if profile.phone %}
+            <p class="dev__location">Телефон: {{ profile.phone }}</p>
+            {% else %}
+            <p class="dev__location">Телефон: Недостаточно данных</p>
+            {% endif %}
         </div>
-</main>
+    </div>
+    <div class="prof_right">
+        <div class="prof_kartochka_right">
+            <h2 class="devInfo__title">Информация о пользователе</h2>
+            {% if profile.info %}
+            <p class="devInfo__about">{{ profile.info}} </p>
+                {% else %}
+            <p class="devInfo__about"> Информация не заполнена в профиле пользователя!</p>
+               {% endif %}
+
+        </div>
+    </div>
+</div>
 
 {% endblock %}

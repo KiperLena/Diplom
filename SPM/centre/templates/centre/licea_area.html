@@ -1,6 +1,22 @@
 {% extends 'centre/base.html' %}
 {% block content %}
-<h1 align="center"><span>Лицензионные участки</span></h1>
+<main class="lic_area">
+    <section class="hero-section text-center">
+<div class="hero-section__box">
+    <h2 align="center">Поиск <span>Лицензионных участков</span></h2>
+</div>
+<div class="hero-section__search">
+    <form id="search" class="form" action="{% url 'licea_area' %}" method="get">
+        <div class="form__field">
+            <label for="formInput#search">Поиск Лицензионного участка </label>
+            <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                   value="{{ search_query }}"
+                   placeholder="Введите название Лицензионного участка"/>
+        </div>
+        <input class="btn btn--sub btn--lg" type="submit" value="Найти"/>
+    </form>
+</div>
+    </section>
 <section>
     <div class="two">
         {% for num in area %}
@@ -14,18 +30,6 @@
     </div>
 </section>
 
-<div class="pagination">
-    <ul class="pagination-list">
-        {% for page in paginator.page_range %}
-                {% if page == area.number %}
-        <li><a href="?page={{ page }}" class="active">{{ page }}</a></li>
-        {% else %}
-        <li><a href="?page={{ page }}" >{{ page }}</a></li>
-         {% endif %}
-        {% endfor %}
-
-    </ul>
-</div>
-
-
+{% include 'centre/pagination.html' with queryset=area custom_range=custom_range %}
+</main>
 {% endblock %}

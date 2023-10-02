@@ -1,15 +1,23 @@
 {% extends 'centre/base.html' %}
 {% load static %}
 {% block content %}
+<section>
+    <h1 align="center">Подать заявку: </h1>
+    <h2>{{ error }}</h2>
 
-<h1>Создание задач: </h1>
-<h2>{{ error }}</h2>
-<form method="post" class="bg">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="center">
-        <button> Создать </button>
-    </div>
-</form>
-
+    <form method="post">
+        <div class="form-border">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-report">
+                <div>
+                    <label class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <input type="submit" class="btn--sub" value="Создать">
+    </form>
+</section>
 {% endblock %}

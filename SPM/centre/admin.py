@@ -19,8 +19,8 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('field', )
-    # list_display_links = ('created',)
+    list_display = ('field', 'created', )
+    list_display_links = ('field',)
     # list_editable = ('area',)
 
 class Department1Admin(admin.ModelAdmin):
@@ -42,6 +42,7 @@ class DirectorateAdmin(admin.ModelAdmin):
 
 class BidAdmin(admin.ModelAdmin):
     list_display = ('title', 'created', 'date_completed')
+    list_display_links = ('title',)
 
 
 

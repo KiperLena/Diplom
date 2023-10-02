@@ -1,10 +1,11 @@
 {% extends 'centre/base.html' %}
 {% load static %}
 {% block content %}
-
 <section>
-    <h2 align="center"> Создание отчета за месяц </h2>
-<form сlass="form" method="post">
+<h1 align="center">Редактирование своего аккаунта</h1>
+
+<div>
+<form action="{% url 'user_account' %}" method="post" enctype="multipart/form-data">
     <div class="form-border">
         {% csrf_token %}
         {% for field in form %}
@@ -14,10 +15,12 @@
                 {{ field }}
             </div>
             {% endfor %}
-
         </div>
-        <input type="submit" class="btn--sub" value="Добавить отчет">
     </div>
+    <input type="submit" class="btn--sub" value="Сохранить">
+
 </form>
+    </div>
 </section>
+
 {% endblock %}

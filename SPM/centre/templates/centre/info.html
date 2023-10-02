@@ -2,129 +2,173 @@
 {% load static %}
 {% block content %}
 
-<h1>Центр ЦГСД Какой-то текст о центре</h1>
+<div class="oil">
+    <div class="oil_wrap">
 
-<div class="wrapper">
-  <h1>Руководящий состав:</h1>
-  <div class="team">
-          {% for dir in directorate %}
-    <div class="team_member">
-      <div class="team_img">
-        <img src="{{ dir.image.url }}" alt="Team_image">
-      </div>
-      <h3>{{ dir.full_name }}</h3>
-      <p class="role">{{ dir.post }}</p>
-      <p>
-          Электронная почта: {{ dir.email }}
-          <br>
-          Номер телефона: {{ dir.telephone }}
-      </p>
+        <div class="content">
+            <div class="kurs_usd">
+                <h3>Курс валюты</h3>
+                <h2>USD/RUB - Доллар США / Российский рубль</h2>
+                <h3><img src="/static/images/usd.png" alt="usd"> {{ price_rub }} </h3>
+                <p>{{ time_oil }}</p>
+            </div>
+        </div>
+        <br>
+        <div class="content">
+            <div class="kurs_oil">
+                <h3>Курс нефти</h3>
+                <h2>BRENT * Нефть Brent</h2>
+                <h3><img src="/static/images/oil.png" alt="oil"> {{ price_rub }} </h3>
+                <p>{{ time_oil }}</p>
+            </div>
+        </div>
     </div>
 
-      {% endfor %}
-  </div>
-</div>
+    <h2 align="center">
+        <span>ЦЕНТР</span>
+        <hr>
+        <span>ГЕОЛОГИЧЕСКОГО СОПРОВОЖДЕНИЯ ДЕЯТЕЛЬНОСТИ</span>
+        <hr>
+        <span>ПАО "СУРГУТНЕФТЕГАЗ" "СургутНИПИнефть"</span>
+        <hr>
+    </h2>
 
-<hr>
-<h2 align="center">Отделы</h2>
-<div class="one">
+    <p class="cgcd_text">Центр Геологического Сопровождения Деятельности ПАО "Сургутнефтегаз" создан 1 сенября 20011
+        года,
+        путем объединения НИКО геологического моделирования и подсчета запасов, НИО региональных исследований и
+        проектирования геолого-разведочных работ "СургутНИПИнефть" и комплексной геолого-тематической
+        партии треста "Сургутнефтегеофизика"</p>
 
-    <h3 align="center">Отдел Сейсмического моделирования</h3>
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <th align="center" width="15%">ФИО</th>
-            <th align="center" width="15%">Должность</th>
-            <th align="center" width="15%">Номер телефона рабочий</th>
-            <th align="center" width="15%">Мобильный телефон</th>
-            <th align="center" width="15%">Электронная почта</th>
-            <th align="center" width="15%">Номер кабинета</th>
-        </tr>
-    </table>
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <td width="15%">Воронцова Лариса Николаевна</td>
-            <td width="15%">Начальник отдела</td>
-            <td width="15%">*****</td>
-            <td width="15%">****</td>
-            <td width="15%">+++++@mail.ru</td>
-            <td width="15%">100</td>
-        </tr>
-    </table>
+    <p class="cgcd_text">Основной целью создания является организация полного цикла работ: от сбора и обобщения
+        геолого-геофизической информации
+        лицензионных участков, планирования геолого-разведочных работ и подсчету запасов, до стадии разработки
+        местрождения на основе детальных геологических
+        и гидродинамических моделий.</p>
 
-    <h3 align="center">Сотрудники отдела</h3>
+    <p class="cgcd_text">Результатом деятельности является обеспечение эффективноговедения поисково-разведочных работ,
+        восполнение
+        сырьевой базы ПАО "Сургутнефтегаз", повышение технико-экономических показателей и достижение максимальной
+        прибыли общества.</p>
+    <div class="wrapper">
+        <h1>Руководящий состав:</h1>
+        <div class="team">
+            {% for dir in directorate %}
+            <div class="team_member">
+                <div class="team_img">
+                    <img src="{{ dir.image.url }}" alt="Team_image">
+                </div>
+                <h3>{{ dir.full_name }}</h3>
+                <p class="role">{{ dir.post }}</p>
+                <p>
+                    Электронная почта: {{ dir.email }}
+                    <br>
+                    Номер телефона: {{ dir.telephone }}
+                </p>
+            </div>
 
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <th align="center" width="15%">ФИО</th>
-            <th align="center" width="15%">Должность</th>
-            <th align="center" width="15%">Номер телефона рабочий</th>
-            <th align="center" width="15%">Мобильный телефон</th>
-            <th align="center" width="15%">Электронная почта</th>
-            <th align="center" width="15%">Номер кабинета</th>
-        </tr>
-    </table>
-    {% for gr in department1 %}
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <td width="15%">{{ gr.full_name }}</td>
-            <td width="15%">{{ gr.post }}</td>
-            <td width="15%">{{ gr.telephone }}</td>
-            <td width="15%">{{ gr.mobile_phone }}</td>
-            <td width="15%">{{ gr.email }}</td>
-            <td width="15%">{{ gr.office }}</td>
-        </tr>
-    </table>
-
-    {% endfor %}
-
-        <h3 align="center">Отдел Петрофизического моделирования</h3>
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <th align="center" width="15%">ФИО</th>
-            <th align="center" width="15%">Должность</th>
-            <th align="center" width="15%">Номер телефона рабочий</th>
-            <th align="center" width="15%">Мобильный телефон</th>
-            <th align="center" width="15%">Электронная почта</th>
-            <th align="center" width="15%">Номер кабинета</th>
-        </tr>
-    </table>
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <td width="15%">Казанцев Сергей Валерьевич</td>
-            <td width="15%">Начальник отдела</td>
-            <td width="15%">*****</td>
-            <td width="15%">****</td>
-            <td width="15%">+++++@mail.ru</td>
-            <td width="15%">100</td>
-        </tr>
-    </table>
-
-    <h3 align="center">Сотрудники отдела</h3>
-
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <th align="center" width="15%">ФИО</th>
-            <th align="center" width="15%">Должность</th>
-            <th align="center" width="15%">Номер телефона рабочий</th>
-            <th align="center" width="15%">Мобильный телефон</th>
-            <th align="center" width="15%">Электронная почта</th>
-            <th align="center" width="15%">Номер кабинета</th>
-        </tr>
-    </table>
-    {% for gr in department2 %}
-    <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
-        <tr>
-            <td width="15%">{{ gr.full_name }}</td>
-            <td width="15%">{{ gr.post }}</td>
-            <td width="15%">{{ gr.telephone }}</td>
-            <td width="15%">{{ gr.mobile_phone }}</td>
-            <td width="15%">{{ gr.email }}</td>
-            <td width="15%">{{ gr.office }}</td>
-        </tr>
-    </table>
-
-    {% endfor %}
-
+            {% endfor %}
+        </div>
+    </div>
 
     <hr>
-    {% endblock %}
+    <h2 align="center">Отделы</h2>
+    <div class="one">
+
+        <h3 align="center">Отдел Сейсмического моделирования</h3>
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <th align="center" width="15%">ФИО</th>
+                <th align="center" width="15%">Должность</th>
+                <th align="center" width="15%">Номер телефона рабочий</th>
+                <th align="center" width="15%">Мобильный телефон</th>
+                <th align="center" width="15%">Электронная почта</th>
+                <th align="center" width="15%">Номер кабинета</th>
+            </tr>
+        </table>
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <td width="15%">Воронцова Лариса Николаевна</td>
+                <td width="15%">Начальник отдела</td>
+                <td width="15%">*****</td>
+                <td width="15%">****</td>
+                <td width="15%">+++++@mail.ru</td>
+                <td width="15%">100</td>
+            </tr>
+        </table>
+
+        <h3 align="center">Сотрудники отдела</h3>
+
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <th align="center" width="15%">ФИО</th>
+                <th align="center" width="15%">Должность</th>
+                <th align="center" width="15%">Номер телефона рабочий</th>
+                <th align="center" width="15%">Мобильный телефон</th>
+                <th align="center" width="15%">Электронная почта</th>
+                <th align="center" width="15%">Номер кабинета</th>
+            </tr>
+        </table>
+        {% for gr in department1 %}
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <td width="15%">{{ gr.full_name }}</td>
+                <td width="15%">{{ gr.post }}</td>
+                <td width="15%">{{ gr.telephone }}</td>
+                <td width="15%">{{ gr.mobile_phone }}</td>
+                <td width="15%">{{ gr.email }}</td>
+                <td width="15%">{{ gr.office }}</td>
+            </tr>
+        </table>
+
+        {% endfor %}
+
+        <h3 align="center">Отдел Петрофизического моделирования</h3>
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <th align="center" width="15%">ФИО</th>
+                <th align="center" width="15%">Должность</th>
+                <th align="center" width="15%">Номер телефона рабочий</th>
+                <th align="center" width="15%">Мобильный телефон</th>
+                <th align="center" width="15%">Электронная почта</th>
+                <th align="center" width="15%">Номер кабинета</th>
+            </tr>
+        </table>
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <td width="15%">Казанцев Сергей Валерьевич</td>
+                <td width="15%">Начальник отдела</td>
+                <td width="15%">*****</td>
+                <td width="15%">****</td>
+                <td width="15%">+++++@mail.ru</td>
+                <td width="15%">100</td>
+            </tr>
+        </table>
+
+        <h3 align="center">Сотрудники отдела</h3>
+
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <th align="center" width="15%">ФИО</th>
+                <th align="center" width="15%">Должность</th>
+                <th align="center" width="15%">Номер телефона рабочий</th>
+                <th align="center" width="15%">Мобильный телефон</th>
+                <th align="center" width="15%">Электронная почта</th>
+                <th align="center" width="15%">Номер кабинета</th>
+            </tr>
+        </table>
+        {% for gr in department2 %}
+        <table border="1" bordercolor="grey" align="center" width="80%" cellpadding="10">
+            <tr>
+                <td width="15%">{{ gr.full_name }}</td>
+                <td width="15%">{{ gr.post }}</td>
+                <td width="15%">{{ gr.telephone }}</td>
+                <td width="15%">{{ gr.mobile_phone }}</td>
+                <td width="15%">{{ gr.email }}</td>
+                <td width="15%">{{ gr.office }}</td>
+            </tr>
+        </table>
+
+        {% endfor %}
+
+
+        {% endblock %}

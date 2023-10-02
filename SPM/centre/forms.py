@@ -8,7 +8,6 @@ class ReportForm(ModelForm):
         model = Report
         fields = ['field', 'title', 'type', 'description', 'name']
         widgets = {
-            'type': forms.CheckboxSelectMultiple(),
             'name': forms.CheckboxSelectMultiple(),
         }
 
@@ -21,9 +20,15 @@ class ReportForm(ModelForm):
 class BidForm(ModelForm):
     class Meta:
         model = Bid
-        fields = ['title', 'area', 'field', 'type', 'purpose', 'number', 'name', 'important']
+        fields = ['title', 'area', 'field', 'type', 'purpose', 'number', 'name', 'important', 'user_bid', 'phone', 'user']
+        widgets = {
+            'name': forms.CheckboxSelectMultiple(),
+        }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'form-report'})
 
 

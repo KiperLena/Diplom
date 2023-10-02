@@ -1,6 +1,7 @@
-/* body{
+body{
   font-family: Arial, Helvetica, sans-serif;
-} */
+}
+
 .container{
     position: fixed;
     top: 0;
@@ -129,10 +130,10 @@
   text-indent: 30px;
   padding: 10px 10px 10px 10px;
   margin: 20px;
-  width: 400px;
-  height: 150px;
+  width: 600px;
+  height: 100%;
   display: inline-block; 
-  margin-left: 20px;
+
   background-color: aliceblue;
 }
 .column h2{
@@ -142,36 +143,31 @@
   color: rgb(46, 116, 160);
 }
 .two{
-  margin: 10px;
+  text-align: center;
 }
 li a{
   text-decoration: none;
 }
-
-.form{
-	width: 100%;
-	max-width: 350px;
- 
-}
 .form-report{
-	width: 100%;
+	width: 700px;
 	display: flex;
 	flex-direction: column;
-	padding: 0px 40px;
 	box-sizing: border-box;
+  margin: 10px auto;
+  text-align: center;
+	padding: 10px 0;
 
 }
 .form-report div{
 	padding: 5px 0px;
-
 }
 .btn--sub{
 	box-sizing: border-box;
-	width: 100%;
+	width: 100px;
 }
 .form-report label,.form-report input{
 	display: block;
-	width: 100%;
+	width: 700px;
 	box-sizing: border-box;
 }
 .form-report label{
@@ -189,17 +185,19 @@ li a{
 	margin-top: 10px;
 	border: none;
 	text-transform: uppercase;
-	color: #fff;
+  color: #020201;
+	background-color: #957315;
 	font-weight: bold;
 	cursor: pointer;
 	border: 3px #975913 solid;
 	border-radius: 5px;
+  width: 50%;
 }
-.form-report .btn--sub{
-	color: #020201;
-	background-color: #957315;
-}
+
+
 .form-border{
+  padding: 20px 20px;
+  margin: 20px 300px 100px 300px;
   border: 3px #975913 solid;
 }
 .form-label{
@@ -207,22 +205,13 @@ li a{
   color: #975913;
   font-size: 18pt;
 }
-
+select {
+  max-width: 600px;
+  height: 200px;
+}
 /*=======================
   Login/SignUp
 ========================*/
-
-
-/* h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 40px 8px 10px 8px; 
-  color: #cccccc;
-} */
-
 
 
 /* STRUCTURE */
@@ -277,8 +266,8 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #56baed;
+input[type=button], input[type=submit], input[type=reset], input[type=password]  {
+  background-color: #5695ed6a;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -539,7 +528,7 @@ input[type=text]:placeholder {
    
   .pagination-list li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 50px 5px;
   }
    
   .pagination-list a {
@@ -567,102 +556,18 @@ input[type=text]:placeholder {
 
 
 .prof{
-  text-align: center;
   border-radius: 10px;
-  box-shadow: 0 0 0 3px  rgb(71, 86, 101);;
-  text-indent: 30px;
-  padding: 10px 10px 10px 10px;
-  margin: 20px;
+  box-shadow: 0 0 0 3px  rgb(71, 86, 101);
+  text-align: center;
+  padding: 20px 70px 10px 50px;
   width: 400px;
-  height: 100%;
+  height: 400px;
   display: inline-block; 
-  margin-left: 20px;
+  margin-left: 50px;
+  margin-right: 15px;
   background-color: aliceblue;
 }
 
-/* .profile .card > .dev {
-  padding: 4rem;
-}
-
-.dev__avatar {
-  display: block;
-  margin: auto;
-
-  }
-
-
-.dev__name {
-  color: var(--color-sub);
-  font-size: 2.8rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.dev__title {
-  font-size: 1.6rem;
-  font-weight: 500;
-  line-height: 1.3;
-}
-
-.dev__location {
-  margin-top: 1rem;
-}
-
-.dev__social {
-  margin: 3rem 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.devInfo {
-  margin-bottom: 3rem;
-}
-
-.devInfo__title,
-.devInfo__subtitle {
-  font-size: 2.6rem;
-  color: var(--color-sub);
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
-.devInfo__subtitle {
-  font-size: 2rem;
-  color: var(--color-sub-light);
-}
-
-.devInfo__about,
-.devSkill__info {
-  font-size: 1.45rem;
-  line-height: 1.7;
-  text-align: justify;
-}
-
-.devSkill {
-  margin-bottom: 3rem;
-}
-
-.devSkill__title {
-  font-size: 1.65rem;
-  font-weight: 500;
-  color: var(--color-sub-light);
-}
-
-@media screen and (min-width: 700px) {
-  .devSkill {
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
-  }
-
-  .devSkill__info {
-    flex-basis: 80%;
-  }
-} */
 
 .avatar{
   border-radius: 50%;
@@ -685,7 +590,6 @@ input[type=text]:placeholder {
 	background-color: aliceblue;
   border: 3px solid rgb(71, 86, 101);
   border-radius: 10px;
-
 }
 .open{
   margin: 40px;
@@ -710,10 +614,10 @@ ul {
 /* задачи*/
 
 .zadachi{
-  margin-top: 50px; 
-  margin-left: 30%;
+  margin-top: 30px; 
+  margin-left: 15%;
   width: 700px;
-	height: 100%;
+	/* height: 100%; */
   border: 3px solid rgb(71, 86, 101);
   font-size: 20px;
   background-color: aliceblue;
@@ -738,3 +642,224 @@ a b{
   color: #bc2222;
 }
 
+
+.bid{
+  margin-top: 50px; 
+  margin-left: 30%;
+  width: 800px;
+	height: 100%;
+	color: rgb(97, 114, 131);
+	background-color: aliceblue;
+  border: 3px solid rgb(71, 86, 101);
+  border-radius: 10px;
+  padding: 20px 20px 20px 20px;
+}
+
+.form-label select{
+  size: 20;
+}
+
+/* BEGIN footer */
+.footer {
+  background: #f5f5f5;
+  position: relative;
+  height: 235px;
+  margin: 50px 0 0;
+  box-sizing: border-box;
+  padding: 35px 0 0;
+}
+.wr {
+  width: 100%;
+  padding: 0 5px;
+} 
+
+.footer .to-left.contacts {
+  left: 50%;
+  position: relative;
+  transform: translate(-50%);
+  display: block;
+  float: none;
+}
+.icon img{
+  width: 25px;
+  height: 25px;
+  background-position: -37px -34px;
+}
+img {
+  width: 100%;
+}
+
+.cgcd_text{
+  text-align: center;
+  padding: 10px 70px 10px 70px;
+}
+
+
+.lic_area > .hero-section {
+  background: var(--color-sub-lighter);
+  height: 20vh;
+}
+
+
+.lic_area .hero-section__box > h2 > span {
+  font-weight: 700;
+
+}
+
+/*=======================
+  Hero Section
+========================*/
+
+.hero-section__box > h2,
+.hero-section__box > h2 > span {
+  font-size: 3rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+
+.hero-section__box > h2 {
+  font-weight: 300;
+}
+
+
+.hero-section__search > .form {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.hero-section__search > .form label {
+  position: absolute;
+  left: -9999px;
+}
+
+.hero-section__search > .form input.input--text {
+  width: 50rem;
+}
+
+.lic_area .btn--sub{
+	padding: 15px;
+	margin-top: 10px;
+	border: none;
+	text-transform: uppercase;
+  color: #020201;
+	background-color: #957315;
+	font-weight: bold;
+	cursor: pointer;
+	border: 3px #975913 solid;
+	border-radius: 5px;
+  width: 10%;
+}
+
+.cgcd_text{
+  margin-top: 50px;
+  text-transform: uppercase;
+  margin:  0 auto;
+  /* margin-left: 20%; */
+   width: 1200px;
+	height: 100%;
+	color: rgb(97, 114, 131);
+	background-color: aliceblue;
+  border: 3px solid rgb(71, 86, 101);
+  border-radius: 10px;
+  padding: 20px 20px 20px 20px;
+}
+.opm{
+  flex-basis: 45%;
+}
+.osm{
+  flex-basis: 45%;
+}
+
+.layout {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.layout h2{
+  margin-left: 18%;
+  color: #755a10;
+}
+
+.prof_left{
+  flex-basis: 45%;
+}
+
+.prof_kartochka{
+  margin-top: 30px; 
+  margin-left: 15%;
+  width: 700px;
+	/* height: 100%; */
+  border: 3px solid rgb(201, 205, 209);
+  font-size: 20px;
+  background-color: rgb(218, 214, 206);
+  border-radius: 10px;
+  color: #000000;
+  display: block;
+}
+.prof_kartochka img{
+  margin-left: 180px;
+  width: 250px;
+  height: 250px;
+  /* background-position: -37px -34px; */
+}
+.prof_kartochka h2{
+  text-align: left;
+}
+.prof_kartochka p{
+  text-align: left;
+  padding: 10px;
+  margin: 0px 0px 10px 100px;
+}
+.prof_right{
+  flex-basis: 55%;
+}
+.prof_kartochka_right{
+  text-align: center;
+  padding: 40px;
+  margin: 40px;
+  font-size: 20px;
+}
+.content img{
+  width: 25px;
+  height: 25px;
+  background-position: -37px -34px;
+}
+.kurs_usd{
+  text-align: center;
+  /* padding: 10px 70px 10px 70px;
+  margin-top: 30px;  */
+  /* margin-left: 70%; */
+  width: 450px;
+	height: 100%;
+  border: 3px solid rgb(201, 205, 209);
+  background-color: rgba(201, 205, 209, 0.375);
+  border-radius: 30px;
+  color: #000000;
+}
+  .kurs_oil{
+    text-align: center;
+    /* padding: 10px 70px 10px 70px;
+    margin-top: 30px;  */
+    /* margin-left: 560px; */
+    width: 450px;
+    height: 100%;
+    border: 3px solid rgb(201, 205, 209);
+    background-color: rgba(201, 205, 209, 0.375);
+    border-radius: 30px;
+    color: #000000;
+  }
+  .oil_wrap{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  .content{
+    margin: 10px;
+  }
+  .industry_oil img{
+    width: 250px;
+    height: 250px;
+    justify-content: center;
+  }

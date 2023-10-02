@@ -5,27 +5,31 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CurrentAccount
+from .utils import paginate_profiles, search_profiles
+from django.db.models import Q #для поиска
 
 
-def profiles(request):
-    prof = Account.objects.all()
+def profiles(request): #все аккаунты пользователей, поиск
+    prof, search_query = search_profiles(request)
+    custom_range, prof = paginate_profiles(request, prof, 4)
     context = {
         'profiles': prof,
+        'search_query': search_query,
+        'custom_range': custom_range,
     }
     return render(request, 'users/index.html', context)
 
 
-def user_profile(request, pk):
+def user_profile(request, pk): #профиль пользователя
     prof = Account.objects.get(id=pk)
-
     context = {
         'profile': prof,
     }
     return render(request, 'users/profile.html', context)
 
 
-def login_user(request): #авторизация
+def login_user(request):  # авторизация
     if request.user.is_authenticated:
         return redirect('info')
 
@@ -49,13 +53,13 @@ def login_user(request): #авторизация
     return render(request, 'users/login_register.html')
 
 
-def logout_user(request):
+def logout_user(request): #разлогиниться
     logout(request)
     messages.info(request, "Пользователь разлогинился!")
     return redirect('login')
 
 
-def register_user(request):
+def register_user(request): #Регистрация
     page = 'register'
     form = CustomUserCreationForm()
 
@@ -68,7 +72,7 @@ def register_user(request):
 
             messages.success(request, "Пользователь успешно зарегистрирован!")
             login(request, user)
-            return redirect('info')
+            return redirect('centre')
         else:
             messages.error(request, "При регистрации произошла ошибка!")
 
@@ -77,3 +81,20 @@ def register_user(request):
         'form': form,
     }
     return render(request, 'users/login_register.html', context)
+
+
+def user_account(request): #редактирование своего аккаунта
+    profile = request.user.account
+    form = CurrentAccount(instance=profile)
+
+    if request.method == 'POST':
+        form = CurrentAccount(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('user_account')
+    context = {
+        'form': form,
+    }
+    return render(request, 'users/user_account.html', context)
+
+

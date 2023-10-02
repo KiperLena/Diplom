@@ -2,33 +2,80 @@
 {% load static %}
 {% block content %}
 
-<h1>Выполненные задачи: </h1>
-    {% for bid in bids %}
-<div class="zadachi">
-<ul>
-    <li>
-        <a href="{% url 'viewbid' bid.id %}">
-              <br>
-            {% if bid.important %}
-            <b>{{ bid.title }}</b>
-            {% else %}
-            {{ bid.title }}
-            {% endif %}
-            <br>
-            {% if bid.purpose %}
-            - {{ bid.purpose }}
-            {% endif %}
-            <br>
-            <b>Было выполнено:</b> {{ bid.date_completed|date:'M j Y H:i'}}
-            <br>
-              <br>
-              <br>
-          </a>
-    </li>
+<h1 align="center">Выполненные заявки: </h1>
+<h3 align="center"> Общее количество выполненных заявок по направлению: {{ count_off }} </p>
+<div class="layout">
+    <div class="opm">
+        <h2>Отдел Петрофизического Моделирования</h2>
+        <h3 align="center">Количество выполненных заявок: {{ count_2 }}</h3>
+        {% for bid in bids_2 %}
+        <div class="zadachi">
+            <ul>
+                <li>
+                    <a href="{% url 'viewbid' bid.id %}">
+                        <br>
+                        {% if bid.important %}
+                        <b>{{ bid.title }}</b>
+                        {% else %}
+                        {{ bid.title }}
+                        {% endif %}
+                        <br>
+                        {% if bid.purpose %}
+                        - {{ bid.purpose }}
+                        {% endif %}
+                        <br>
+                        <b>Дата выполнения:</b> {{ bid.date_completed|date:'M j Y H:i'}}
+                        <br>
+                        {% if bid.user %}
+                        <b>Выполнил: {{ bid.user }}</b>
+                        {% endif %}
 
-</ul>
+                        <br>
+                        <br>
+                        <br>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="opm">
+        <h2>Отдел Сейсмогеологического Моделирования</h2>
+        <h3 align="center">Количество выполненных заявок: {{ count }}</h3>
+        {% for bid in bids %}
+        <div class="zadachi">
+            <ul>
+                <li>
+                    <a href="{% url 'viewbid' bid.id %}">
+                        <br>
+                        {% if bid.important %}
+                        <b>{{ bid.title }}</b>
+                        {% else %}
+                        {{ bid.title }}
+                        {% endif %}
+                        <br>
+                        {% if bid.purpose %}
+                        - {{ bid.purpose }}
+                        {% endif %}
+                        <br>
+                        <b>Дата выполнения:</b> {{ bid.date_completed|date:'M j Y H:i'}}
+                        <br>
+                        {% if bid.user %}
+                        <b>Выполнил: {{ bid.user }}</b>
+                        {% endif %}
+
+                        <br>
+                        <br>
+                        <br>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
 </div>
- {% endfor %}
 <hr>
 
 {% endblock %}
